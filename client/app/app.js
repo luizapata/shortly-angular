@@ -16,12 +16,20 @@ angular.module('shortly', [
       controller: 'AuthController'
     })
     // Your code here
+    .when('/links',{
+      templateUrl:'app/links/links.html',
+      controller: 'LinksController'    
+    })
+    .when('/shorten',{
+      templateUrl:'app/shorten/shorten.html',
+      controller: 'ShortenController'
+    })
 
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
     $httpProvider.interceptors.push('AttachTokens');
 })
-.factory('AttachTokens', function ($window) {
+app.factory('AttachTokens', function ($window) {
   // this is an $httpInterceptor
   // its job is to stop all out going request
   // then look in local storage and find the user's token
@@ -38,7 +46,7 @@ angular.module('shortly', [
   };
   return attach;
 })
-.run(function ($rootScope, $location, Auth) {
+app.run(function ($rootScope, $location, Auth) {
   // here inside the run phase of angular, our services and controllers
   // have just been registered and our app is ready
   // however, we want to make sure the user is authorized
