@@ -29,7 +29,7 @@ angular.module('shortly', [
     // of interceptors. Think of it like middleware for your ajax calls
     $httpProvider.interceptors.push('AttachTokens');
 })
-app.factory('AttachTokens', function ($window) {
+.factory('AttachTokens', function ($window) {
   // this is an $httpInterceptor
   // its job is to stop all out going request
   // then look in local storage and find the user's token
@@ -46,7 +46,7 @@ app.factory('AttachTokens', function ($window) {
   };
   return attach;
 })
-app.run(function ($rootScope, $location, Auth) {
+.run(function ($rootScope, $location, Auth) {
   // here inside the run phase of angular, our services and controllers
   // have just been registered and our app is ready
   // however, we want to make sure the user is authorized
