@@ -3,18 +3,14 @@ angular.module('shortly.shorten', [])
 .controller('ShortenController', function ($scope, $location, Links) {
   // Your code here
   $scope.link = {
-    
+    text : " "
   }
-//   $scope.addLink = function(){
-//     console.log($location);
-//     $location({
-//       method:'POST',
-//       url: $location
-//     })
-//   }
-// });
+  console.log($scope.link)
 
-  $scope.addLink = function(url){
-    Links.post();
+  $scope.addLink = function(){
+    if($scope.link.text){
+      Links.post($scope.link.text);
+      $scope.link.text = " "
+    }
   }
 });

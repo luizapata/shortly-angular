@@ -25,9 +25,11 @@ module.exports = {
 
   findAll({})
     .then(function (links) {
+      console.log("REQ.BODY",req.body)
       res.json(links);
     })
     .fail(function (error) {
+      console.log("ERROR",error)
       next(error);
     });
   },

@@ -7,14 +7,20 @@ angular.module('shortly.services', [])
       method: 'POST',
       url: '/api/links',
       data: link
+    }).then(function(res){
+      return res.data.token;
     });
   }
 
   var get = function(){
     return $http({
       method: 'GET',
-      url: '/api/links',
+      url: '/api/links'
 
+    }).then(function succes(res){
+      return res
+    }, function error(res){
+      return res;
     });
   }
 

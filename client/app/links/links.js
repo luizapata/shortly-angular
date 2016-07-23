@@ -6,9 +6,9 @@ angular.module('shortly.links', [])
       links : []
     };
     $scope.getLinks = function(){
-      var klink = Links.get();
-      $scope.data.links.push(klink);
-      console.log('KLINK!!!', klink)
+      Links.get().then(function(res){
+        $scope.data.links = res.data
+      });
     }
     $scope.getLinks();
 });
