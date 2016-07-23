@@ -1,4 +1,8 @@
 <div id='container'>
   <!-- Your html here -->
-  
+  <table ng-controller="LinksController" border="1">
+    <tr ng-repeat="x in links">
+        <td>{{x.link}}</td>
+    </tr>
+</table>
 </div>

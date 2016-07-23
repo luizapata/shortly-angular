@@ -6,21 +6,20 @@ angular.module('shortly.services', [])
     return $http({
       method: 'POST',
       url: '/api/links',
-      data: link
+      contentType: 'application/json',
+      data: { link: link }
     }).then(function(res){
-      return res.data.token;
+      return res;
     });
   }
 
   var get = function(){
     return $http({
       method: 'GET',
-      url: '/api/links'
-
+      url: '/api/links',
+      contentType: 'application/json'
     }).then(function succes(res){
-      return res
-    }, function error(res){
-      return res;
+      return res.data;
     });
   }
 
