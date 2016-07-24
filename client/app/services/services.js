@@ -42,7 +42,8 @@ angular.module('shortly.services', [])
     return $http({
       method: 'POST',
       url: '/api/users/signin',
-      data: user
+      data: { user: user },
+      contentType:
     })
     .then(function (resp) {
       return resp.data.token;
@@ -53,7 +54,9 @@ angular.module('shortly.services', [])
     return $http({
       method: 'POST',
       url: '/api/users/signup',
-      data: user
+      contentType: 'application/json',
+      data: { user: user }
+
     })
     .then(function (resp) {
       return resp.data.token;

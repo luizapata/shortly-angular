@@ -1,8 +1,26 @@
-<div id='container'>
+<div id='link'>
   <!-- Your html here -->
-  <table ng-controller="LinksController" border="1">
-    <tr ng-repeat="x in links">
-        <td>{{x.link}}</td>
-    </tr>
+
+  <nav id="layout">
+    <div class="navigation">
+      <ul>
+        <li><a href="#/links" class="index">All Links</a></li>
+        <li><a href="#/shorten" class="index">Shorten</a></li>
+      </ul>
+    </div>
+    <div id="container"></div>
+  </nav>
+
+
+  <table ng-controller="LinksController">
+    <ul ng-repeat="x in data.links" class="link">
+      <img src="../assets/redirect_icon.png">
+       <div class="info"> 
+        <div class="visits"><span class="count">{{ x.visits }}</span></div>
+        <div class="title">{{ x.title }}</div>
+        <li class='original' class="hover">{{ x.url }}</li>
+        <a href="{{x.base_url}}/api/links/{{x.code}}">{{x.base_url}}/{{x.code}}</a>
+      </div>
+    </ul>
 </table>
 </div>
